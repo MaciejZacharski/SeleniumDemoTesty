@@ -13,16 +13,16 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-     driver =   DriverFactory.getDriver();
-     driver.manage().window().maximize();
-     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-     driver.get("http://seleniumdemo.com/");
+        driver = DriverFactory.getDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("http://seleniumdemo.com/");
 
     }
 
     @AfterMethod
     public void tearDown() {
-      //  driver.quit();
+        //  driver.quit();
 
     }
 }

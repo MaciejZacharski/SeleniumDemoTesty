@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RegisterTest extends BaseTest{
+public class RegisterTest extends BaseTest {
 
     @Test
     public void RegisterUserTest() {
@@ -14,13 +14,11 @@ public class RegisterTest extends BaseTest{
         String email = "test" + random + "@gmail.com";
 
         WebElement dashboardLink = new HomePage(driver).openMyAccountPage()
-        .registerUserValidData(email, "Test_123!!").getDashboardLink();
-
-
+                .registerUserValidData(email, "Test_123!!")
+                .getDashboardLink();
 
 
         Assert.assertEquals(dashboardLink.getText(), "Dashboard");
-
 
 
     }
@@ -29,17 +27,11 @@ public class RegisterTest extends BaseTest{
     public void RegisterUserWithExistingEmailTest() {
 
 
+        WebElement emailError = new HomePage(driver).openMyAccountPage()
+                .registerUserInvalidEmail("test123@gmail.com", "Test_123!!")
+                .getError();
 
-     WebElement emailError =   new HomePage(driver).openMyAccountPage()
-                .registerUserInvalidEmail("test123@gmail.com", "Test_123!!").getError();
-
-     Assert.assertTrue(emailError.getText().contains("An account is already registered with your email address. Please log in."));
-
-
-
-
-
-
+        Assert.assertTrue(emailError.getText().contains("An account is already registered with your email address. Please log in."));
 
 
     }

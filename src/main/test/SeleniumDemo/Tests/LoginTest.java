@@ -12,15 +12,12 @@ public class LoginTest extends BaseTest {
     public void LoginUserTest() {
 
 
-
         WebElement dashboardLink = new HomePage(driver).openMyAccountPage()
-                .loginUserValidData("test123@gmail.com", "Test_123!!").getDashboardLink();
-
-
+                .loginUserValidData("test123@gmail.com", "Test_123!!")
+                .getDashboardLink();
 
 
         Assert.assertEquals(dashboardLink.getText(), "Dashboard");
-
 
 
     }
@@ -29,17 +26,11 @@ public class LoginTest extends BaseTest {
     public void RegisterUserWithExistingEmailTest() {
 
 
-
-        WebElement loginError =   new HomePage(driver).openMyAccountPage()
-                .loginUserInvalidEmail("test12387@gmail.com", "Test_123!!").getError();
+        WebElement loginError = new HomePage(driver).openMyAccountPage()
+                .loginUserInvalidEmail("test12387@gmail.com", "Test_123!!")
+                .getError();
 
         Assert.assertTrue(loginError.getText().contains("Incorrect username or password."), "Expected Error Text dosent match");
-
-
-
-
-
-
 
 
     }
