@@ -1,15 +1,44 @@
 package SeleniumDemo.Tests;
 
 import SeleniumDemo.Pages.HomePage;
-import SeleniumDemo.Pages.MyAccountPage;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class RegisterTest extends BaseTest{
 
     @Test
     public void RegisterUserTest() {
-        MyAccountPage myAccountPage = new HomePage(driver).openMyAccountPage();
-        myAccountPage.registerUser("test123@test.com", "Test_123!!");
+
+        int random = (int) (Math.random() * 1000);
+        String email = "test" + random + "@gmail.com";
+
+        WebElement dashboardLink = new HomePage(driver).openMyAccountPage()
+        .registerUserValidData(email, "Test_123!!").getDashboardLink();
+
+
+
+
+        Assert.assertEquals(dashboardLink.getText(), "Dashboard");
+
+
+
+    }
+
+    @Test
+    public void RegisterUserWithExistingEmailTest() {
+
+
+
+     WebElement emailError =   new HomePage(driver).openMyAccountPage()
+                .registerUserInvalidEmail("test123@gmail.com", "Test_123!!").getError();
+
+     Assert.assertTrue(emailError.getText().contains("An account is already registered with your email address. Please log in."));
+
+
+
+
+
 
 
 
