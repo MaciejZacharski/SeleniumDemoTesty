@@ -3,15 +3,15 @@ package SeleniumDemo.Models;
 public class Customer {
 
 
-    private String firstName;
-    private String lastName;
-    private String countryNameSelect;
-    private String address1;
-    private String address2;
-    private String postalCode;
-    private String cityName;
-    private String phoneNumber;
-    private String emailAddress;
+    private String firstName = "Maciej";
+    private String lastName = "Testowy";
+    private String countryNameSelect = "Poland";
+    private String address1 = "Marecka";
+    private String address2 = "22";
+    private String postalCode = "123-12";
+    private String cityName = "Warszawa";
+    private String phoneNumber = "123443211";
+    private String emailAddress = "test128@gmail.com";
 
     public String getFirstName() {
         return firstName;

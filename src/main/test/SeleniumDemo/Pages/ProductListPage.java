@@ -1,5 +1,6 @@
 package SeleniumDemo.Pages;
 
+import SeleniumDemo.Utils.SeleniumHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,10 +24,12 @@ public class ProductListPage {
     }
 
     public ProductListPage addToCart() {
+        SeleniumHelper.waitForClickable(addToCart, driver);
         addToCart.click();
         return new ProductListPage(driver);
     }
     public CartPage viewCart() {
+        SeleniumHelper.waitForClickable(viewCart, driver);
         viewCart.click();
         return new CartPage(driver);
     }

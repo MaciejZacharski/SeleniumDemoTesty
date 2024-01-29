@@ -2,6 +2,7 @@ package SeleniumDemo.Tests;
 
 import SeleniumDemo.Models.Customer;
 import SeleniumDemo.Pages.HomePage;
+import SeleniumDemo.Pages.OrderPageDetails;
 import SeleniumDemo.Pages.ProductListPage;
 import SeleniumDemo.Pages.ProductPage;
 import org.openqa.selenium.WebElement;
@@ -17,29 +18,20 @@ public class ShopTest extends BaseTest{
         String email = "test" + random + "@gmail.com";
 
         Customer customer = new Customer();
-        customer.setFirstName("Janusz");
-        customer.setLastName("Marski");
-        customer.setAddress1("ul. Morska");
-        customer.setAddress2("22");
-        customer.setCountryNameSelect("Poland");
-        customer.setCityName("Warszawa");
-        customer.setPostalCode("22-222");
-        customer.setPhoneNumber("123443211");
-        customer.setEmailAddress(email);
+        customer.setEmailAddress("specific@gmail.com");
 
 
-     new HomePage(driver).openShopPage()
+        OrderPageDetails orderPageDetails = new HomePage(driver).openShopPage()
                 .openProduct("Java Selenium WebDriver")
                 .addToCart()
                 .viewCart()
                 .proceedCheckout().fillInCustomerForm(customer);
-//     String message = new ProductPage(driver).getItemAddedToCartMessage();
-
-  //   Assert.assertTrue(message.contains("“Java Selenium WebDriver” has been added to your cart."));
 
 
 
 
 
+    Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
+    Assert.assertEquals(orderPageDetails.getProductName(), "Java Selenium WebDriver");
     }
 }

@@ -1,6 +1,7 @@
 package SeleniumDemo.Pages;
 
 import SeleniumDemo.Models.Customer;
+import SeleniumDemo.Utils.SeleniumHelper;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,7 +29,7 @@ public class BillingDetailsPage {
     private WebElement postalCodeInput;
     @FindBy(id = "billing_city")
     private WebElement cityNameInput;
-    @FindBy(xpath = "//button[@class='button alt']")
+    @FindBy(id = "place_order")
     private WebElement placeOrderButton;
     @FindBy(id = "billing_phone")
     private WebElement phoneNumberInput;
@@ -90,6 +91,10 @@ private WebDriver driver;
     }
 
     public OrderPageDetails clickOnPlaceOrder() {
+        SeleniumHelper.waitForClickable(placeOrderButton, driver);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(placeOrderButton);
+        actions.perform();
         placeOrderButton.click();
         return new OrderPageDetails(driver);
     }
@@ -105,9 +110,8 @@ private WebDriver driver;
         cityNameInput.sendKeys(customer.getCityName());
         phoneNumberInput.sendKeys(customer.getPhoneNumber());
         emailAddressInput.sendKeys(customer.getEmailAddress());
-        Actions actions = new Actions(driver);
-        actions.moveToElement(placeOrderButton);
-        actions.perform();
+        clickOnPlaceOrder();
+
 
 
 

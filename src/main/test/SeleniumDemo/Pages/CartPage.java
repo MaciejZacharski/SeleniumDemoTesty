@@ -1,5 +1,6 @@
 package SeleniumDemo.Pages;
 
+import SeleniumDemo.Utils.SeleniumHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,7 @@ private WebDriver driver;
         this.driver = driver;
     }
     public BillingDetailsPage proceedCheckout() {
+        SeleniumHelper.waitForClickable(checkoutButton, driver);
         checkoutButton.click();
         return new BillingDetailsPage(driver);
     }
