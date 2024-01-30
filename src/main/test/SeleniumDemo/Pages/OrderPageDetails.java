@@ -10,7 +10,13 @@ public class OrderPageDetails {
     @FindBy(xpath = "//div[@class='woocommerce-order']//p")
     private WebElement thankYouForYourOrder;
     @FindBy(linkText = "Java Selenium WebDriver")
-    private WebElement productName;
+    private WebElement productNameSelenium;
+    @FindBy(linkText = "BDD Cucumber")
+    private WebElement productNameBDDCucumber;
+    @FindBy(linkText = "GIT basics")
+    private WebElement productNameGIT;
+
+
     public OrderPageDetails(WebDriver driver) {
         PageFactory.initElements(driver,this);
 
@@ -19,8 +25,14 @@ public class OrderPageDetails {
     public String getThankYouText() {
      return    thankYouForYourOrder.getText();
     }
-    public String getProductName() {
-      return   productName.getText();
+    public String getProductNameSelenium() {
+      return   productNameSelenium.getText();
+    }
+    public String getProductNameBDDCucumber() {
+        return   productNameBDDCucumber.getText();
+    }
+    public String getProductNameGIT() {
+        return   productNameGIT.getText();
     }
 
 }

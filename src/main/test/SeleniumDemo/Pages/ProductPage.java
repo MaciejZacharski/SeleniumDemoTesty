@@ -17,11 +17,23 @@ public class ProductPage {
     @FindBy(linkText = "View cart")
     private WebElement viewCart;
 
+    @FindBy(name = "quantity")
+    private WebElement addMoreProductsInput;
+
+    @FindBy(xpath = "//p[@class='price']")
+    private WebElement productCurrency;
+    @FindBy(xpath = "//div[@id='tab-description']//p")
+    private WebElement productDescription;
+
 
      private WebDriver driver;
     public ProductPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
+    }
+    public ProductPage getProductDescription() {
+        productDescription.getText();
+        return new ProductPage(driver);
     }
 
     public ProductPage addToCart() {
@@ -36,5 +48,11 @@ public class ProductPage {
         SeleniumHelper.waitForClickable(viewCart, driver);
         viewCart.click();
         return new CartPage(driver);
+    }
+    public ProductPage addMoreProducts(String numberOfProducts) {
+        SeleniumHelper.waitForClickable(addMoreProductsInput, driver);
+        addMoreProductsInput.clear();
+        addMoreProductsInput.sendKeys(numberOfProducts);
+        return new ProductPage(driver);
     }
 }

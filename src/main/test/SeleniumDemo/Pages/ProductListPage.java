@@ -1,5 +1,6 @@
 package SeleniumDemo.Pages;
 
+import SeleniumDemo.Models.Products;
 import SeleniumDemo.Utils.SeleniumHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,12 +16,17 @@ public class ProductListPage {
     @FindBy(linkText = "View cart")
     private WebElement viewCart;
 
+    @FindBy(xpath = "//h1[text()='Shop']")
+    private WebElement shopHeader;
 
     private WebDriver driver;
 
     public ProductListPage(WebDriver driver) {
         PageFactory.initElements(driver,this);
         this.driver = driver;
+    }
+    public String getShopHeader() {
+       return shopHeader.getText();
     }
 
     public ProductListPage addToCart() {
@@ -34,9 +40,13 @@ public class ProductListPage {
         return new CartPage(driver);
     }
 
-    public ProductPage openProduct(String title) {
-        driver.findElement(By.xpath("//h2[text()='"+ title +"']")).click();
+    public ProductPage openProduct(Products product) {
+
+        driver.findElement(By.xpath("//h2[text()='"+ product.getName() +"']")).click();
         return new ProductPage(driver);
 
     }
+
+
+
 }

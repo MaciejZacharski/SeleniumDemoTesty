@@ -95,7 +95,7 @@ private WebDriver driver;
         Actions actions = new Actions(driver);
         actions.moveToElement(placeOrderButton);
         actions.perform();
-        placeOrderButton.click();
+
         return new OrderPageDetails(driver);
     }
 
@@ -110,6 +110,7 @@ private WebDriver driver;
         cityNameInput.sendKeys(customer.getCityName());
         phoneNumberInput.sendKeys(customer.getPhoneNumber());
         emailAddressInput.sendKeys(customer.getEmailAddress());
+
         clickOnPlaceOrder();
 
 
