@@ -34,6 +34,12 @@ public class CartPage {
 
     @FindBy(xpath = "//div[@class='woocommerce-message']")
     private WebElement cartUpdated;
+    @FindBy(id = "coupon_code")
+    private WebElement couponCodeInput;
+    @FindBy(name = "apply_coupon")
+    private WebElement applyCouponButton;
+    @FindBy(xpath = "//div[@class='woocommerce-notices-wrapper']//li")
+    private WebElement couponErrorMessage;
 
 private WebDriver driver;
     public CartPage(WebDriver driver) {
@@ -94,6 +100,20 @@ private WebDriver driver;
         addMoreProductsInput.clear();
         addMoreProductsInput.sendKeys(numberOfProducts);
         return new CartPage(driver);
+    }
+    public CartPage enterCouponCode(String coupon) {
+
+        couponCodeInput.sendKeys(coupon);
+
+        return new  CartPage(driver);
+    }
+    public CartPage applyCoupon() {
+        SeleniumHelper.waitForClickable(applyCouponButton, driver);
+        applyCouponButton.click();
+        return new CartPage(driver);
+    }
+    public String getCouponErrorMessage() {
+      return couponErrorMessage.getText();
     }
 
 }

@@ -1,8 +1,10 @@
 package SeleniumDemo.Pages;
 
 import SeleniumDemo.Utils.SeleniumHelper;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -24,6 +26,12 @@ public class ProductPage {
     private WebElement productCurrency;
     @FindBy(xpath = "//div[@id='tab-description']//p")
     private WebElement productDescription;
+    @FindBy(xpath = "//sup[@class='count czr-wc-count']")
+    private WebElement cartProductCount;
+    @FindBy(xpath = "//a[@class='button checkout wc-forward']")
+    private WebElement proceedToCheckoutButton;
+
+
 
 
      private WebDriver driver;
@@ -54,5 +62,17 @@ public class ProductPage {
         addMoreProductsInput.clear();
         addMoreProductsInput.sendKeys(numberOfProducts);
         return new ProductPage(driver);
+    }
+    public String getCartProductCount() {
+        return cartProductCount.getText();
+    }
+    public BillingDetailsPage proceedToCheckout() {
+        Actions action = new Actions(driver);
+        WebElement hoverImage = driver.findElement(By.xpath("//i[@class='icn-shoppingcart']"));
+        action.moveToElement(hoverImage).build().perform();
+        SeleniumHelper.waitForClickable(proceedToCheckoutButton, driver);
+        proceedToCheckoutButton.click();
+
+        return new BillingDetailsPage(driver);
     }
 }

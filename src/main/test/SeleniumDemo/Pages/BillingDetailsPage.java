@@ -35,6 +35,8 @@ public class BillingDetailsPage {
     private WebElement phoneNumberInput;
     @FindBy(id = "billing_email")
     private WebElement emailAddressInput;
+    @FindBy(linkText = "Click here to enter your code")
+    private WebElement enterCouponLink;
 
 
 private WebDriver driver;
@@ -119,6 +121,10 @@ private WebDriver driver;
 
 
         return  new OrderPageDetails(driver);
+    }
+
+    public String getEnterCouponLink() {
+        return enterCouponLink.getText();
     }
 
 

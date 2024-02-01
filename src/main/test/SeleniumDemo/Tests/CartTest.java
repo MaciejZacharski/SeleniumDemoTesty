@@ -15,8 +15,8 @@ import java.io.IOException;
 
 public class CartTest extends BaseTest {
     @Test
-    public void checkEmptyCart() throws IOException {
-        ExtentTest test = extentReports.createTest("check Empty Cart Test");
+    public void checkEmptyCartAfterRemoval() throws IOException {
+        ExtentTest test = extentReports.createTest("check Empty Cart After Removal Test");
 
 
         CartPage cartPage = new HomePage(driver).openShopPage()
@@ -135,6 +135,27 @@ public class CartTest extends BaseTest {
         Assert.assertEquals(cartPage.getCartUpdateConfirmationMessage(), "Cart updated.");
         Assert.assertEquals(cartPage.getTotalProductPrice(), "3,00 złzł");
         test.log(Status.PASS, "Total price updated", SeleniumHelper.getScreenshot(driver));
+
+
+    }
+    @Test
+    public void CheckIncorrectCouponError() throws IOException {
+        ExtentTest test = extentReports.createTest("Check Incorrect Coupon Error");
+
+        String coupon = "Marzec";
+        CartPage cartPage = new HomePage(driver).openShopPage()
+                .openProduct(Products.JAVASELENIUMWEBDRIVER)
+                .addMoreProducts("1")
+                .addToCart()
+                .viewCart()
+                        .enterCouponCode(coupon)
+                                .applyCoupon();
+
+
+
+        Assert.assertEquals(cartPage.getCouponErrorMessage(),"Coupon " + "\"" + coupon.toLowerCase() + "\"" + " does not exist!");
+
+        test.log(Status.PASS, "Coupon Error Message displayed", SeleniumHelper.getScreenshot(driver));
 
 
     }
