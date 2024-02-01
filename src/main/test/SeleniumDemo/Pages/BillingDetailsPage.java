@@ -97,6 +97,8 @@ private WebDriver driver;
         Actions actions = new Actions(driver);
         actions.moveToElement(placeOrderButton);
         actions.perform();
+        SeleniumHelper.waitForClickable(placeOrderButton, driver);
+        placeOrderButton.click();
 
         return new OrderPageDetails(driver);
     }

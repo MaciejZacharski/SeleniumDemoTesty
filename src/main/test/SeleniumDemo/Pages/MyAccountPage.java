@@ -54,6 +54,7 @@ public class MyAccountPage {
 
         registrationEmailInput.sendKeys(email);
         registrationPasswordInput.sendKeys(password);
+
         registrationButton.click();
 
     }
