@@ -2,11 +2,13 @@ package SeleniumDemo.Tests;
 
 import SeleniumDemo.Models.Products;
 import SeleniumDemo.Pages.BillingDetailsPage;
+import SeleniumDemo.Pages.ErrorPage;
 import SeleniumDemo.Pages.HomePage;
 import SeleniumDemo.Pages.ProductPage;
 import SeleniumDemo.Utils.SeleniumHelper;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -68,6 +70,58 @@ public class ProductTest extends BaseTest {
 
 
         Assert.assertTrue(billingDetailsPage.getEnterCouponLink().contains("Click here to enter your code"));
+    }
+    @Test
+    public void addNewProductReview() throws IOException {
+
+
+        ExtentTest test = extentReports.createTest("Add New Product Review Test");
+
+        String number = "3";
+        ProductPage productPage = new HomePage(driver).openShopPage()
+                .openProduct(Products.BDDCUCUMBER)
+                .clickOnReviews();
+        test.log(Status.PASS, "Reviews tab opened", SeleniumHelper.getScreenshot(driver));
+                productPage.addReview("Super course", "Jan", "jan@test.com");
+
+        test.log(Status.PASS, "Reviews added", SeleniumHelper.getScreenshot(driver));
+
+    }
+    @Test
+    public void addNewProductReviewNoRating() throws IOException {
+
+
+        ExtentTest test = extentReports.createTest("Add New Product Review Test");
+
+        String number = "3";
+        ProductPage productPage = new HomePage(driver).openShopPage()
+                .openProduct(Products.BDDCUCUMBER)
+                .clickOnReviews();
+        test.log(Status.PASS, "Reviews tab opened", SeleniumHelper.getScreenshot(driver));
+        productPage.addReviewNoRating("Super course", "Jan", "jan@test.com");
+
+
+        test.log(Status.PASS, "Reviews added", SeleniumHelper.getScreenshot(driver));
+
+
+    }
+    @Test
+    public void addNewEmptyProductReview() throws IOException {
+
+
+        ExtentTest test = extentReports.createTest("Add New Product Review Test");
+
+        String number = "3";
+        ProductPage productPage = new HomePage(driver).openShopPage()
+                .openProduct(Products.BDDCUCUMBER)
+                .clickOnReviews();
+        test.log(Status.PASS, "Reviews tab opened", SeleniumHelper.getScreenshot(driver));
+     ErrorPage error = productPage.addEmptyReview();
+
+
+        test.log(Status.PASS, "Reviews added", SeleniumHelper.getScreenshot(driver));
+        Assert.assertTrue(error.getEmptyReviewErrorMessage().contains("name, email"));
+
     }
 
 
