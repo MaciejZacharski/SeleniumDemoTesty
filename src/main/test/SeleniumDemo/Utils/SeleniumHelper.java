@@ -13,6 +13,8 @@ import java.time.Duration;
 
 public class SeleniumHelper {
 
+
+
     public static void waitForClickable(WebElement element, WebDriver driver) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -39,5 +41,9 @@ public class SeleniumHelper {
         String path = "src/test/resources/screenshot" + randomNumber + ".png";
         FileUtils.copyFile(file, new File(path));
         return path;
+    }
+    public static void scrollUp(WebDriver driver) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollBy(0,-1000)");
     }
 }

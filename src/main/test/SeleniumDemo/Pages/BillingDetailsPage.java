@@ -2,10 +2,7 @@ package SeleniumDemo.Pages;
 
 import SeleniumDemo.Models.Customer;
 import SeleniumDemo.Utils.SeleniumHelper;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -41,6 +38,8 @@ public class BillingDetailsPage {
     private WebElement enterCouponLink;
     @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
     private List<WebElement> errorMessages;
+    @FindBy(xpath = "//h1[@class='entry-title']")
+    private WebElement mainHeader;
 
 
     private WebDriver driver;
@@ -147,6 +146,9 @@ public class BillingDetailsPage {
     }
 
     public List<WebElement> getErrorMessages() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(mainHeader).perform();
+        SeleniumHelper.waitForIsPresent(By.xpath("//ul[@class='woocommerce-error']//li"), driver);
 
         return errorMessages;
 

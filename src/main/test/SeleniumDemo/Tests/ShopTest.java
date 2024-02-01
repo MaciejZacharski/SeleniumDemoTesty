@@ -7,6 +7,7 @@ import SeleniumDemo.Utils.SeleniumHelper;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -33,10 +34,10 @@ public class ShopTest extends BaseTest {
                 .fillInCustomerForm(customer);
         test.log(Status.PASS, "Filled Customer form", SeleniumHelper.getScreenshot(driver));
        OrderPageDetails orderPageDetails = billingDetailsPage.clickOnPlaceOrder();
-
+        Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
         test.log(Status.PASS, "Order Page Loaded", SeleniumHelper.getScreenshot(driver));
 
-        Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
+
         Assert.assertEquals(orderPageDetails.getProductNameSelenium(), "Java Selenium WebDriver");
     }
     @Test
@@ -56,10 +57,10 @@ public class ShopTest extends BaseTest {
                 .fillInCustomerForm(customer);
         test.log(Status.PASS, "Filled Customer form", SeleniumHelper.getScreenshot(driver));
         OrderPageDetails orderPageDetails = billingDetailsPage.clickOnPlaceOrder();
-
+        Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
         test.log(Status.PASS, "Order Page Loaded", SeleniumHelper.getScreenshot(driver));
 
-        Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
+
         Assert.assertEquals(orderPageDetails.getProductNameBDDCucumber(), "BDD Cucumber");
     }
     @Test
@@ -79,10 +80,10 @@ public class ShopTest extends BaseTest {
                 .fillInCustomerForm(customer);
         test.log(Status.PASS, "Filled Customer form", SeleniumHelper.getScreenshot(driver));
         OrderPageDetails orderPageDetails = billingDetailsPage.clickOnPlaceOrder();
-
+        Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
         test.log(Status.PASS, "Order Page Loaded", SeleniumHelper.getScreenshot(driver));
 
-        Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
+
         Assert.assertEquals(orderPageDetails.getProductNameGIT(), "GIT basics");
     }
     @Test
@@ -104,9 +105,10 @@ public class ShopTest extends BaseTest {
         test.log(Status.PASS, "Filled Customer form", SeleniumHelper.getScreenshot(driver));
         OrderPageDetails orderPageDetails = billingDetailsPage.clickOnPlaceOrder();
 
+        Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
         test.log(Status.PASS, "Order Page Loaded", SeleniumHelper.getScreenshot(driver));
 
-        Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
+
         Assert.assertEquals(orderPageDetails.getProductNameBDDCucumber(), "BDD Cucumber");
     }
 
@@ -134,6 +136,7 @@ public class ShopTest extends BaseTest {
         test.log(Status.PASS, "Filled Customer form", SeleniumHelper.getScreenshot(driver));
 
         List<WebElement> errors =   billingDetailsPage.clickOnPlaceOrderWithEmptyCustomerForm().getErrorMessages();
+
         test.log(Status.PASS, "Error Messages Shown", SeleniumHelper.getScreenshot(driver));
 
 
