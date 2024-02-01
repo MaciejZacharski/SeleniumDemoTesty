@@ -3,10 +3,7 @@ package SeleniumDemo.Utils;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.MediaEntityModelProvider;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,6 +19,13 @@ public class SeleniumHelper {
         wait.until(ExpectedConditions.elementToBeClickable(element));
 
     }
+    public static void waitForIsPresent(By locator, WebDriver driver) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+
+    }
+
     public static MediaEntityModelProvider getScreenshot(WebDriver driver) throws IOException {
         String path = takeScreenshot(driver);
         return MediaEntityBuilder.createScreenCaptureFromPath(path).build();

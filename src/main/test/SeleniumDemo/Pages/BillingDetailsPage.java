@@ -3,6 +3,7 @@ package SeleniumDemo.Pages;
 import SeleniumDemo.Models.Customer;
 import SeleniumDemo.Utils.SeleniumHelper;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -97,6 +98,7 @@ private WebDriver driver;
         Actions actions = new Actions(driver);
         actions.moveToElement(placeOrderButton);
         actions.perform();
+        SeleniumHelper.waitForIsPresent(By.id("place_order"), driver);
         SeleniumHelper.waitForClickable(placeOrderButton, driver);
         placeOrderButton.click();
 
