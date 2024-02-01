@@ -91,7 +91,7 @@ public class ProductTest extends BaseTest {
     public void addNewProductReviewNoRatingTest() throws IOException {
 
 
-        ExtentTest test = extentReports.createTest("Add New Product Review Test");
+        ExtentTest test = extentReports.createTest("Add New Product Review No Rating Test");
 
         String number = "3";
         ProductPage productPage = new HomePage(driver).openShopPage()
@@ -109,7 +109,7 @@ public class ProductTest extends BaseTest {
     public void addNewEmptyProductReviewTest() throws IOException {
 
 
-        ExtentTest test = extentReports.createTest("Add New Product Review Test");
+        ExtentTest test = extentReports.createTest("Add New Empty Product Review Test");
 
         String number = "3";
         ProductPage productPage = new HomePage(driver).openShopPage()

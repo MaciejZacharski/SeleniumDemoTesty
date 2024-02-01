@@ -42,8 +42,5 @@ public class SeleniumHelper {
         FileUtils.copyFile(file, new File(path));
         return path;
     }
-    public static void scrollUp(WebDriver driver) {
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,-1000)");
-    }
+
 }
