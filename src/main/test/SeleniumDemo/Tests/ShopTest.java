@@ -19,8 +19,7 @@ public class ShopTest extends BaseTest {
     @Test
     public void BuyJavaSeleniumWebDriverTest() throws IOException {
         ExtentTest test = extentReports.createTest("Buy Java Selenium WebDriver Test");
-        int random = (int) (Math.random() * 1000);
-        String email = "test" + random + "@gmail.com";
+
 
         Customer customer = new Customer();
         customer.setEmailAddress("specific@gmail.com");
@@ -43,8 +42,7 @@ public class ShopTest extends BaseTest {
     @Test
     public void BuyBDDCucumberTest() throws IOException {
         ExtentTest test = extentReports.createTest("BuyBDDCucumberTest");
-        int random = (int) (Math.random() * 1000);
-        String email = "test" + random + "@gmail.com";
+
 
         Customer customer = new Customer();
         customer.setEmailAddress("specific@gmail.com");
@@ -67,8 +65,7 @@ public class ShopTest extends BaseTest {
     @Test
     public void BuyGitBasicsTest() throws IOException {
         ExtentTest test = extentReports.createTest("Buy Git Basics Test");
-        int random = (int) (Math.random() * 1000);
-        String email = "test" + random + "@gmail.com";
+
 
         Customer customer = new Customer();
         customer.setEmailAddress("specific@gmail.com");
@@ -91,8 +88,7 @@ public class ShopTest extends BaseTest {
     @Test
     public void Buy2BDDCucumberTest() throws IOException {
         ExtentTest test = extentReports.createTest("Buy 2BDD Cucumber Test");
-        int random = (int) (Math.random() * 1000);
-        String email = "test" + random + "@gmail.com";
+
 
         Customer customer = new Customer();
         customer.setEmailAddress("specific@gmail.com");
