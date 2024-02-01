@@ -17,7 +17,7 @@ import java.io.IOException;
 public class ProductTest extends BaseTest {
 
     @Test
-    public void checkAddedProductMessage() throws IOException {
+    public void checkAddedProductMessageTest() throws IOException {
 
 
         ExtentTest test = extentReports.createTest("Check Added Product Message Test");
@@ -34,7 +34,7 @@ public class ProductTest extends BaseTest {
     }
 
     @Test
-    public void checkUpperCornerCartUpdate() throws IOException {
+    public void checkUpperCornerCartUpdateTest() throws IOException {
 
 
         ExtentTest test = extentReports.createTest("Check Upper Corner Cart Update Test");
@@ -52,7 +52,7 @@ public class ProductTest extends BaseTest {
     }
 
     @Test
-    public void proceedToCheckoutFromProductPage() throws IOException {
+    public void proceedToCheckoutFromProductPageTest() throws IOException {
 
 
         ExtentTest test = extentReports.createTest("Proceed To Checkout From Product Page Test");
@@ -72,7 +72,7 @@ public class ProductTest extends BaseTest {
         Assert.assertTrue(billingDetailsPage.getEnterCouponLink().contains("Click here to enter your code"));
     }
     @Test
-    public void addNewProductReview() throws IOException {
+    public void addNewProductReviewTest() throws IOException {
 
 
         ExtentTest test = extentReports.createTest("Add New Product Review Test");
@@ -88,7 +88,7 @@ public class ProductTest extends BaseTest {
 
     }
     @Test
-    public void addNewProductReviewNoRating() throws IOException {
+    public void addNewProductReviewNoRatingTest() throws IOException {
 
 
         ExtentTest test = extentReports.createTest("Add New Product Review Test");
@@ -106,7 +106,7 @@ public class ProductTest extends BaseTest {
 
     }
     @Test
-    public void addNewEmptyProductReview() throws IOException {
+    public void addNewEmptyProductReviewTest() throws IOException {
 
 
         ExtentTest test = extentReports.createTest("Add New Product Review Test");

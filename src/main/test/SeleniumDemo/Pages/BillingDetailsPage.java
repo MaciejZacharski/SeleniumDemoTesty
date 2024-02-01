@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.decorators.WebDriverDecorator;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BillingDetailsPage {
@@ -38,13 +39,15 @@ public class BillingDetailsPage {
     private WebElement emailAddressInput;
     @FindBy(linkText = "Click here to enter your code")
     private WebElement enterCouponLink;
+    @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
+    private List<WebElement> errorMessages;
 
 
-private WebDriver driver;
+    private WebDriver driver;
 
 
     public BillingDetailsPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
@@ -52,30 +55,37 @@ private WebDriver driver;
         firstNameInput.sendKeys(firstName);
         return new BillingDetailsPage(driver);
     }
+
     public BillingDetailsPage setLastName(String lastName) {
         lastNameInput.sendKeys(lastName);
         return new BillingDetailsPage(driver);
     }
+
     public BillingDetailsPage setAddress1Line(String address1Line) {
         address1Input.sendKeys(address1Line);
         return new BillingDetailsPage(driver);
     }
+
     public BillingDetailsPage setAddress2Line(String address2Line) {
         address2Input.sendKeys(address2Line);
         return new BillingDetailsPage(driver);
     }
+
     public BillingDetailsPage setPostalCode(String postalCode) {
         postalCodeInput.sendKeys(postalCode);
         return new BillingDetailsPage(driver);
     }
+
     public BillingDetailsPage setPhoneNumber(String phoneNumber) {
         phoneNumberInput.sendKeys(phoneNumber);
         return new BillingDetailsPage(driver);
     }
+
     public BillingDetailsPage setEmailAddress(String emailAddress) {
         emailAddressInput.sendKeys(emailAddress);
         return new BillingDetailsPage(driver);
     }
+
     public BillingDetailsPage setCity(String city) {
         cityNameInput.sendKeys(city);
         return new BillingDetailsPage(driver);
@@ -104,8 +114,19 @@ private WebDriver driver;
 
         return new OrderPageDetails(driver);
     }
+    public BillingDetailsPage clickOnPlaceOrderWithEmptyCustomerForm() {
+        SeleniumHelper.waitForClickable(placeOrderButton, driver);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(placeOrderButton);
+        actions.perform();
+        SeleniumHelper.waitForIsPresent(By.id("place_order"), driver);
+        SeleniumHelper.waitForClickable(placeOrderButton, driver);
+        placeOrderButton.click();
 
-    public OrderPageDetails fillInCustomerForm(Customer customer)  {
+        return new BillingDetailsPage(driver);
+    }
+
+    public BillingDetailsPage fillInCustomerForm(Customer customer) {
         firstNameInput.sendKeys(customer.getFirstName());
         lastNameInput.sendKeys(customer.getLastName());
         address1Input.sendKeys(customer.getAddress1());
@@ -117,23 +138,17 @@ private WebDriver driver;
         phoneNumberInput.sendKeys(customer.getPhoneNumber());
         emailAddressInput.sendKeys(customer.getEmailAddress());
 
-        clickOnPlaceOrder();
 
-
-
-
-
-
-        return  new OrderPageDetails(driver);
+        return new BillingDetailsPage(driver);
     }
 
     public String getEnterCouponLink() {
         return enterCouponLink.getText();
     }
 
+    public List<WebElement> getErrorMessages() {
 
+        return errorMessages;
 
-
-
-
+    }
 }

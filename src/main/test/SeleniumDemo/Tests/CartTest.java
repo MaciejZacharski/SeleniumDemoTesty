@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class CartTest extends BaseTest {
     @Test
-    public void checkEmptyCartAfterRemoval() throws IOException {
+    public void checkEmptyCartAfterRemovalTest() throws IOException {
         ExtentTest test = extentReports.createTest("check Empty Cart After Removal Test");
 
 
@@ -35,7 +35,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void backToShop() throws IOException {
+    public void backToShopTest() throws IOException {
         ExtentTest test = extentReports.createTest("back To Shop Test");
 
 
@@ -57,7 +57,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void checkIfCorrectProductWasAdded() throws IOException {
+    public void checkIfCorrectProductWasAddedTest() throws IOException {
         ExtentTest test = extentReports.createTest("check If Correct Product Was Added Test");
 
 
@@ -74,7 +74,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void retrieveProduct() throws IOException {
+    public void retrieveProductTest() throws IOException {
         ExtentTest test = extentReports.createTest("Retrieve Product Test");
 
 
@@ -98,7 +98,7 @@ public class CartTest extends BaseTest {
 
     }
     @Test
-    public void AddProductInCartAndUpdateCart() throws IOException {
+    public void AddProductInCartAndUpdateCartTest() throws IOException {
         ExtentTest test = extentReports.createTest("Add Product In Cart And Update Cart Test");
 
 
@@ -118,7 +118,7 @@ public class CartTest extends BaseTest {
 
     }
     @Test
-    public void CheckPriceUpdate() throws IOException {
+    public void CheckPriceUpdateTest() throws IOException {
         ExtentTest test = extentReports.createTest("Check Price Update Test");
 
 
@@ -139,7 +139,7 @@ public class CartTest extends BaseTest {
 
     }
     @Test
-    public void CheckIncorrectCouponError() throws IOException {
+    public void CheckIncorrectCouponErrorTest() throws IOException {
         ExtentTest test = extentReports.createTest("Check Incorrect Coupon Error");
 
         String coupon = "Marzec";

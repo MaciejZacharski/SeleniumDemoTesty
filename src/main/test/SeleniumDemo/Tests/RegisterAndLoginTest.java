@@ -48,13 +48,13 @@ public class RegisterAndLoginTest extends BaseTest {
 
     }
     @Test(priority = 2)
-    public void LoginUserTest() {
-
+    public void LoginUserTest() throws IOException {
+        ExtentTest test = extentReports.createTest("Login User Test");
 
         WebElement dashboardLink = new HomePage(driver).openMyAccountPage()
                 .loginUserValidData(email, "Test_123!!")
                 .getDashboardLink();
-
+        test.log(Status.PASS, "Logged user Dashboard", SeleniumHelper.getScreenshot(driver));
 
         Assert.assertEquals(dashboardLink.getText(), "Dashboard");
 
@@ -62,13 +62,13 @@ public class RegisterAndLoginTest extends BaseTest {
     }
 
     @Test
-    public void LoginUserWithInvalidEmailTest() {
-
+    public void LoginUserWithInvalidEmailTest() throws IOException {
+        ExtentTest test = extentReports.createTest("Login User With Invalid Email Test");
 
         WebElement loginError = new HomePage(driver).openMyAccountPage()
                 .loginUserInvalidEmail("test12387@gmail.com", "Test_123!!")
                 .getError();
-
+        test.log(Status.PASS, "Error message for incorrect login", SeleniumHelper.getScreenshot(driver));
         Assert.assertTrue(loginError.getText().contains("Incorrect username or password."), "Expected Error Text dosent match");
 
 
