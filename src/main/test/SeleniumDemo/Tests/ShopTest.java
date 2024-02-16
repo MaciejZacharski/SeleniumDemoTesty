@@ -80,7 +80,9 @@ public class ShopTest extends BaseTest {
                 .fillInCustomerForm(customer);
         test.log(Status.PASS, "Filled Customer form", SeleniumHelper.getScreenshot(driver));
         OrderPageDetails orderPageDetails = billingDetailsPage.clickOnPlaceOrder();
+
         Assert.assertEquals(orderPageDetails.getThankYouText(), "Thank you. Your order has been received.");
+
         test.log(Status.PASS, "Order Page Loaded", SeleniumHelper.getScreenshot(driver));
 
 
