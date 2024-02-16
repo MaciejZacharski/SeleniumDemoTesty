@@ -7,6 +7,7 @@ import com.mongodb.client.model.Filters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -32,6 +33,11 @@ public class ProductListPage {
 
     @FindBy(xpath = "//ul[@class='products columns-4']/li[2]/a[1]/h2")
     private WebElement secondProductOnList;
+
+    @FindBy(css = ".woocommerce-mini-cart__empty-message")
+    private WebElement emptyCartMessage;
+    @FindBy(xpath = "//i[@class='icn-shoppingcart']")
+    private WebElement cartImage;
 
 
     private WebDriver driver;
@@ -83,6 +89,18 @@ public class ProductListPage {
     public String checkFilterForSecondProduct() {
 
         return secondProductOnList.getText();
+    }
+
+    public String getEmptyCartMessage() {
+
+
+        return emptyCartMessage.getText();
+    }
+    public ProductListPage hoverCartImage() {
+    Actions hoverCartImage = new Actions(driver);
+    hoverCartImage.moveToElement(cartImage).perform();
+
+        return new ProductListPage(driver);
     }
 
 
