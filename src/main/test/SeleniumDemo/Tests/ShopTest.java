@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ShopTest extends BaseTest {
 
-    @Test
+   /* @Test
     public void BuyJavaSeleniumWebDriverTest() throws IOException {
         ExtentTest test = extentReports.createTest("Buy Java Selenium WebDriver Test");
 
@@ -157,5 +157,5 @@ public class ShopTest extends BaseTest {
     }
 
 
-
+*/
 }

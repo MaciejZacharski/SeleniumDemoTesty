@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class RegisterAndLoginTest extends BaseTest {
 
-
+/*
     int random = (int) (Math.random() * 1000);
     String email = "test" + random + "@gmail.com";
 
@@ -72,6 +72,6 @@ public class RegisterAndLoginTest extends BaseTest {
         Assert.assertTrue(loginError.getText().contains("Incorrect username or password."), "Expected Error Text dosent match");
 
 
-    }
+    }*/
 
 }

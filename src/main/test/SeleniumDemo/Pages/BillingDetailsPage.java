@@ -105,11 +105,10 @@ public class BillingDetailsPage {
     public OrderPageDetails clickOnPlaceOrder() {
         SeleniumHelper.waitForClickable(placeOrderButton, driver);
         Actions actions = new Actions(driver);
-        actions.moveToElement(placeOrderButton);
-        actions.perform();
+        actions.moveToElement(placeOrderButton).perform();
         SeleniumHelper.waitForIsPresent(By.id("place_order"), driver);
         SeleniumHelper.waitForClickable(placeOrderButton, driver);
-        placeOrderButton.click();
+        actions.click();
 
         return new OrderPageDetails(driver);
     }

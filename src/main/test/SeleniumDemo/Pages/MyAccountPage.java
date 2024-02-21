@@ -2,6 +2,7 @@ package SeleniumDemo.Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -54,8 +55,8 @@ public class MyAccountPage {
 
         registrationEmailInput.sendKeys(email);
         registrationPasswordInput.sendKeys(password);
-
-        registrationButton.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(registrationButton).click().perform();
 
     }
 
@@ -63,7 +64,8 @@ public class MyAccountPage {
 
         loginUsernameInput.sendKeys(email);
         loginPasswordInput.sendKeys(password);
-        loginButton.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(loginButton).click().perform();
 
     }
 

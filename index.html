@@ -46,7 +46,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Feb 16, 2024 02:21:45 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Feb 21, 2024 11:22:35 AM</span>
 				</a>
 			</li>
 			<li>
@@ -72,7 +72,6 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
-						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -123,10 +122,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -138,10 +137,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -156,17 +155,17 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Check Empty Cart Message Test</span>
-						<span class='test-time'>Feb 16, 2024 02:21:46 PM</span>
-						<span class='test-status right fail'>fail</span>
+						<span class='test-name'>Login User With Invalid Email Test</span>
+						<span class='test-time'>Feb 21, 2024 11:22:37 AM</span>
+						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Feb 16, 2024 02:21:46 PM</span>
-	<span class='label end-time'>Feb 16, 2024 02:21:48 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+948ms</span>
+	<span class='label start-time'>Feb 21, 2024 11:22:37 AM</span>
+	<span class='label end-time'>Feb 21, 2024 11:22:38 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+407ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -178,15 +177,112 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class='log' status='fail'>
-					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-					<td class='timestamp'>2:21:48 PM</td>
-					<td class='step-details'>Empty cart Message displayed incorrectly<img data-featherlight='src/test/resources/screenshot278.png' width='10%' src='src/test/resources/screenshot278.png' data-src='src/test/resources/screenshot278.png'></td>
-				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>2:21:48 PM</td>
-					<td class='step-details'>Empty cart Message displayed<img data-featherlight='src/test/resources/screenshot240.png' width='10%' src='src/test/resources/screenshot240.png' data-src='src/test/resources/screenshot240.png'></td>
+					<td class='timestamp'>11:22:38 AM</td>
+					<td class='step-details'>Error message for incorrect login<img data-featherlight='src/test/resources/screenshot157.png' width='10%' src='src/test/resources/screenshot157.png' data-src='src/test/resources/screenshot157.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Register User Test</span>
+						<span class='test-time'>Feb 21, 2024 11:22:40 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 21, 2024 11:22:40 AM</span>
+	<span class='label end-time'>Feb 21, 2024 11:22:41 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+990ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:22:41 AM</td>
+					<td class='step-details'>User registered Dashboard Loaded<img data-featherlight='src/test/resources/screenshot229.png' width='10%' src='src/test/resources/screenshot229.png' data-src='src/test/resources/screenshot229.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>Register User With Existing Email Test</span>
+						<span class='test-time'>Feb 21, 2024 11:22:52 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 21, 2024 11:22:52 AM</span>
+	<span class='label end-time'>Feb 21, 2024 11:22:54 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+854ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:22:54 AM</td>
+					<td class='step-details'>Error message displayed<img data-featherlight='src/test/resources/screenshot714.png' width='10%' src='src/test/resources/screenshot714.png' data-src='src/test/resources/screenshot714.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>Login User Test</span>
+						<span class='test-time'>Feb 21, 2024 11:23:03 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 21, 2024 11:23:03 AM</span>
+	<span class='label end-time'>Feb 21, 2024 11:23:04 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+490ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:23:04 AM</td>
+					<td class='step-details'>Logged user Dashboard<img data-featherlight='src/test/resources/screenshot943.png' width='10%' src='src/test/resources/screenshot943.png' data-src='src/test/resources/screenshot943.png'></td>
 				</tr>
 			</tbody>
 		</table>
@@ -228,31 +324,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Feb 16, 2024 02:21:45 PM</div>
+					<div class='panel-lead'>Feb 21, 2024 11:22:35 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Feb 16, 2024 02:21:48 PM</div>
+			 		<div class='panel-lead'>Feb 21, 2024 11:23:08 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 3s+805ms</div>
+					<div class='panel-lead'>0h 0m 32s+541ms</div>
 				</div>
 			</div>
 		</div>
@@ -265,22 +361,22 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 0,
-				failParent: 1,
+				passParent: 4,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 1,
+				exceptionsParent: 0,
 				
-				passChild: 1,
-				failChild: 1,
+				passChild: 4,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 1,
+				exceptionsChild: 0,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,
